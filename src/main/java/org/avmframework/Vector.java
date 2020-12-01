@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Vector extends AbstractVector {
 
+  //variables is from AbstractVector.class
   public void addVariable(Variable variable) {
     variables.add(variable);
   }

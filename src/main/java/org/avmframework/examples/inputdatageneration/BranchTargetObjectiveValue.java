@@ -8,6 +8,7 @@ public class BranchTargetObjectiveValue extends ObjectiveValue {
   protected double branchDistance;
 
   public BranchTargetObjectiveValue(int approachLevel, double branchDistance) {
+    super(approachLevel,branchDistance);
     this.approachLevel = approachLevel;
     this.branchDistance = branchDistance;
   }
@@ -33,6 +34,15 @@ public class BranchTargetObjectiveValue extends ObjectiveValue {
     }
     return 0;
   }
+
+  public int getApproachLevel() {
+    return approachLevel;
+  }
+
+  public double getBranchDistance() {
+    return branchDistance;
+  }
+
 
   @Override
   public String toString() {

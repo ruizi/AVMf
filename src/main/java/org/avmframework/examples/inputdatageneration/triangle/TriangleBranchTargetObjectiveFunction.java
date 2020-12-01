@@ -32,14 +32,11 @@ public class TriangleBranchTargetObjectiveFunction extends BranchTargetObjective
     controlDependencies.add(new Branch(5, true), new Branch(4, false));
     controlDependencies.add(new Branch(5, false), new Branch(4, false));
 
-    controlDependencies.add(new Branch(6, true), new Branch(5, true));
-    controlDependencies.add(new Branch(6, false), new Branch(5, true));
+    controlDependencies.add(new Branch(6, true), new Branch(5, false));
+    controlDependencies.add(new Branch(6, false), new Branch(5, false));
 
-    controlDependencies.add(new Branch(7, true), new Branch(5, false));
-    controlDependencies.add(new Branch(7, false), new Branch(5, false));
-
-    controlDependencies.add(new Branch(8, true), new Branch(7, false));
-    controlDependencies.add(new Branch(8, false), new Branch(7, false));
+    controlDependencies.add(new Branch(7, true), new Branch(6, false));
+    controlDependencies.add(new Branch(7, false), new Branch(6, false));
 
     return controlDependencies.getControlDependenceChain(target);
   }
@@ -62,7 +59,7 @@ public class TriangleBranchTargetObjectiveFunction extends BranchTargetObjective
       num2 = temp;
     }
 
-    if (trace.greaterThan(2, num1, num2)) {
+    if (trace.greaterThan(2, num1, num3)) {
       int temp = num1;
       num1 = num3;
       num3 = temp;
@@ -78,14 +75,12 @@ public class TriangleBranchTargetObjectiveFunction extends BranchTargetObjective
       type = Triangle.TriangleType.NOT_A_TRIANGLE;
     } else {
       type = Triangle.TriangleType.SCALENE;
-      if (trace.equals(5, num1, num2)) {
-        if (trace.equals(6, num2, num3)) {
+      if (trace.equals(5, num1, num2, num3)) {
           type = Triangle.TriangleType.EQUILATERAL;
-        }
       } else {
-        if (trace.equals(7, num1, num2)) {
+        if (trace.equals(6, num1, num2)) {
           type = Triangle.TriangleType.ISOSCELES;
-        } else if (trace.equals(8, num2, num3)) {
+        } else if (trace.equals(7, num2, num3)) {
           type = Triangle.TriangleType.ISOSCELES;
         }
       }

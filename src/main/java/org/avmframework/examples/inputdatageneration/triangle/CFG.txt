@@ -1,0 +1,34 @@
+public static Triangle.TriangleType classify(int num1, int num2, int num3) {
+ 1.        Triangle.TriangleType type;
+
+ 2.        if (num1 > num2) {   //Node 1
+ 3.            int temp = num1;
+ 4.            num1 = num2;
+ 5.            num2 = temp;
+           }
+ 6.        if (num1 > num3) {  //Node 2
+ 7.            int temp = num1;
+ 8.            num1 = num3;
+ 9.            num3 = temp;
+           }
+10.        if (num2 > num3) { //Node 3
+11.            int temp = num2;
+12.            num2 = num3;
+13.            num3 = temp;
+           }
+14.        if (num1 + num2 <= num3) { //Node 4
+15.            type = Triangle.TriangleType.NOT_A_TRIANGLE;
+           } else {
+16.            type = Triangle.TriangleType.SCALENE;
+17.            if (num1 == num2 && num2 == num3) {  //Node 5
+18.                type = Triangle.TriangleType.EQUILATERAL;
+               } else {
+19.                if (num1 == num2) {  //Node 6
+20.                    type = Triangle.TriangleType.ISOSCELES;
+21.                } else if (num2 == num3) { //Node 7
+22.                    type = Triangle.TriangleType.ISOSCELES;
+                   }
+               }
+           }
+23.        return type;
+       }

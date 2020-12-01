@@ -27,24 +27,24 @@ public class GenerateInputData {
 
   // CHANGE THE FOLLOWING CONSTANTS TO EXPLORE THEIR EFFECT ON THE SEARCH:
   // - search constants
-  static final String SEARCH_NAME = "IteratedPatternSearch"; // can also be set at the command line
-  static final int MAX_EVALUATIONS = 100000;
+  static final String SEARCH_NAME = "HillClimbingSearch"; // can also be set at the command line
+  static final int MAX_EVALUATIONS = 1000000000;
 
   public static void main(String[] args) {
     // Nested class to help parse command line arguments
     GenerateInputDataArgsParser argsParser = new GenerateInputDataArgsParser(args);
 
     // instantiate the test object using command line parameters
-    TestObject testObject = argsParser.parseTestObjectParam();
+    TestObject testObject = argsParser.parseTestObjectParam(); //ex. Triangle
 
     // instantiate the branch using command line parameters
-    Branch target = argsParser.parseBranchParam(testObject);
+    Branch target = argsParser.parseBranchParam(testObject); //ex. 5T
 
     // set up the local search, which can be overridden at the command line
     LocalSearch localSearch = argsParser.parseSearchParam(SEARCH_NAME);
 
     // set up the objective function
-    ObjectiveFunction objFun = testObject.getObjectiveFunction(target);
+    ObjectiveFunction objFun = testObject.getObjectiveFunction(target); // 如果想去8，这objFun为 4，5，7
 
     // set up the vector
     Vector vector = testObject.getVector();

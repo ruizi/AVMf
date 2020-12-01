@@ -8,7 +8,7 @@ import org.avmframework.variable.IntegerVariable;
 
 public class TriangleTestObject extends TestObject {
 
-  static final int NUM_BRANCHING_NODES = 8;
+  static final int NUM_BRANCHING_NODES = 7;
   static final int INITIAL_VALUE = 0;
   static final int MIN = 0;
   static final int MAX = 1000;
@@ -23,7 +23,7 @@ public class TriangleTestObject extends TestObject {
   }
 
   @Override
-  public BranchTargetObjectiveFunction getObjectiveFunction(Branch target) {
+  public BranchTargetObjectiveFunction getObjectiveFunction(Branch target) { //ex. 4T
     return new TriangleBranchTargetObjectiveFunction(target);
   }
 

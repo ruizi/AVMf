@@ -17,6 +17,8 @@ public abstract class BranchTargetObjectiveFunction extends ObjectiveFunction {
 
   protected abstract ControlDependenceChain getControlDependenceChainForTarget();
 
+
+
   protected ObjectiveValue computeObjectiveValue(Vector vector) {
     trace = new ExecutionTrace();
     executeTestObject(vector);
